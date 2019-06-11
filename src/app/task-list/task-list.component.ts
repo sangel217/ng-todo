@@ -11,14 +11,16 @@ import { Task } from '../models/task.model';
 export class TaskListComponent {
   @Input() childTaskList: Task[];
   @Output() clickSender = new EventEmitter();
+  filterByCompleteness: string = "incompleteTasks";
+  toggleDone(clickedTask: Task, setCompleteness: boolean){
+    clickedTask.done = setCompleteness;
+  }
+  onChange(optionFromMenu) {
+    this.filterByCompleteness = optionFromMenu;
+  }
   editButtonClicked(taskToEdit: Task){
     this.clickSender.emit(taskToEdit);
   }
-  tasks: Task[] = [
-    new Task('Finish weekend Angular homework for Epicodus course', 3),
-    new Task('Begin brainstorming possible JavaScript group projects', 2),
-    new Task('Add README file to last few Angular repos on GitHub', 2)
-  ];
   
   priorityColor(currentTask){
     if(currentTask.priority === 3){
