@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from './models/task.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,14 @@ export class AppComponent {
   ];
   // selectedTask: Task = this.tasks[0];
   selectedTask = null;
+  
+  newTask = null;
+
+  addTask(newTask){
+    this.newTask = new Task("new task", 3);
+    
+    this.tasks.push(this.newTask);
+  }
 
   editTask(clickedTask) {
     this.selectedTask = clickedTask;
@@ -34,6 +43,10 @@ export class AppComponent {
   }
   finishedEditing() {
     this.selectedTask = null;
+  }
+
+  finishedAdding(){
+    this.newTask = null;
   }
 }
 
