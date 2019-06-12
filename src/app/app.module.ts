@@ -16,8 +16,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
     TaskListComponent,
     EditTaskComponent,
     NewTaskComponent,
-    CompletenessPipe
-  ],
+    CompletenessPipe],
   imports: [
     BrowserModule,
     FormsModule

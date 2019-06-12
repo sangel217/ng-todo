@@ -5,7 +5,7 @@
 </select>
 
 <ul>
-  <li [class]="priorityColor(currentTask)" *ngFor="let currentTask of childTaskList | completeness:fileterByCompleteness">{{currentTask.description}} {{currentTask.priority}}
+  <li [class]="priorityColor(currentTask)" *ngFor="let currentTask of childTaskList | completeness:filterByCompleteness">{{currentTask.description}} {{currentTask.priority}}
     <input *ngIf="currentTask.done === true" type="checkbox" checked (click)="toggleDone(currentTask, false)"/>
     <input *ngIf="currentTask.done === false" type="checkbox" (click)="toggleDone(currentTask, true)"/>
     <button (click)="editButtonClicked(currentTask)">Edit!</button>
